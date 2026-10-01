@@ -1,0 +1,17 @@
+{
+	"required": true,
+	"package": "pet.itpuppy.fluffyisles.mixin",
+	"compatibilityLevel": "JAVA_21",
+
+	"mixins": [
+		"GuiGraphicsMixin"
+	],
+
+	"injectors": {
+		"defaultRequire": 1
+	},
+
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

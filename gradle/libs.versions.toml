@@ -1,0 +1,22 @@
+[versions]
+minecraft = "1.21.11"
+
+fabric-loader = "0.19.5"
+fabric-api = "0.141.6+1.21.11"
+fabric-language-kotlin = "1.14.1+kotlin.2.4.20"
+parchment = "2025.12.20"
+
+devauth = "1.2.2"
+
+[libraries]
+minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
+
+fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
+fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api" }
+fabric-language-kotlin = { module = "net.fabricmc:fabric-language-kotlin", version.ref = "fabric-language-kotlin" }
+parchment = { module = "org.parchmentmc.data:parchment-1.21.11", version.ref = "parchment" }
+
+devauth = { module = "me.djtheredstoner:DevAuth-fabric", version.ref = "devauth" }
+
+[bundles]
+fabric = ["fabric-loader", "fabric-api", "fabric-language-kotlin"]
