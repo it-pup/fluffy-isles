@@ -268,7 +268,7 @@ abstract class CommandFileTask @Inject constructor(layout: ProjectLayout) : Defa
 
     init {
         maxDepth.convention(15)
-        output.convention(layout.buildDirectory.file("generated/sbapi/commands"))
+        output.convention(layout.buildDirectory.file("generated/fluffy-isles/commands"))
     }
 
     @TaskAction
