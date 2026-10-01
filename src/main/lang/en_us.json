@@ -8,6 +8,11 @@
                     "rarityHighlightSection": {
                         "@": "Item Rarity Highlights",
                         "isEnabled": "Enabled"
+                    },
+
+                    "miscSection": {
+                        "@": "Misc Settings",
+                        "showOwnNametag": "Render Own Nametag"
                     }
                 }
             }
