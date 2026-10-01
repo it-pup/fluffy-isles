@@ -2,21 +2,21 @@
 	"schemaVersion": 1,
 	"id": "fluffy-isles",
 	"version": "${version}",
-	"name": "Fluffy Isles",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "${name}",
+	"description": "${description}",
 
 	"authors": [
-		"Me!"
+		"itpuppy"
 	],
 
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://itpuppy.pet/",
+		"sources": "https://github.com/it-pup/fluffy-isles"
 	},
 
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/fluffy-isles/icon.png",
-	"environment": "*",
+	"environment": "client",
 
 	"entrypoints": {
 		"main": [
@@ -41,8 +41,14 @@
 	"depends": {
 		"fabricloader": ">=0.19.5",
 		"minecraft": "~1.21.11",
+		"cloth-config": ">=21.11.153",
 		"java": ">=21",
+
 		"fabric-api": "*",
 		"fabric-language-kotlin": "*"
+	},
+
+	"suggests": {
+		"modmenu": "*"
 	}
 }
