@@ -90,6 +90,12 @@ java {
 	targetCompatibility = JavaVersion.VERSION_21
 }
 
+tasks.named("sourcesJar") {
+	// needed for proper building
+
+	dependsOn("flattenLang")
+}
+
 tasks.jar {
 	val projectName = project.name
 	inputs.property("projectName", projectName)
