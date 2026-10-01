@@ -50,7 +50,7 @@ tasks.processResources {
 	}
 
 	val props = buildMap {
-		register("name", "name")
+		register("name", "modname")
 		register("description", "description")
 		register("version", "version")
 	}

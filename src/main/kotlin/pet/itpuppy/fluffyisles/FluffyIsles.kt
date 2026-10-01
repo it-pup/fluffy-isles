@@ -7,6 +7,7 @@ import net.minecraft.client.Minecraft
 import net.minecraft.resources.Identifier
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import pet.itpuppy.fluffyisles.commands.ConfigCommand
 import pet.itpuppy.fluffyisles.config.ModConfig
 
 object FluffyIsles : ModInitializer {
@@ -22,6 +23,8 @@ object FluffyIsles : ModInitializer {
 
 		AutoConfig.register(ModConfig::class.java, ::GsonConfigSerializer)
 		config = AutoConfig.getConfigHolder(ModConfig::class.java).config
+
+		ConfigCommand.register()
 	}
 
 	 fun id(path: String): Identifier = Identifier.fromNamespaceAndPath(MOD_ID, path)
