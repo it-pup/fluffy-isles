@@ -7,7 +7,7 @@ import pet.itpuppy.fluffyisles.FluffyIsles
 import pet.itpuppy.fluffyisles.config.section.RarityHighlightSection
 
 @Config(name = FluffyIsles.MOD_ID)
-object ModConfig : ConfigData {
+class ModConfig : ConfigData {
     @ConfigEntry.Gui.CollapsibleObject
     var rarityHighlightSection = RarityHighlightSection()
 }
