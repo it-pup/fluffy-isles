@@ -5,6 +5,7 @@ plugins {
 	id("net.fabricmc.fabric-loom-remap")
 	id("org.jetbrains.kotlin.jvm") version "2.4.20"
 
+	commands
 	`maven-publish`
 }
 
@@ -24,6 +25,12 @@ repositories {
 	maven("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1")
 	maven("https://maven.terraformersmc.com/") { name = "Terraformers" }
 	maven("https://maven.shedaniel.me/")
+}
+
+sourceSets {
+	main {
+		kotlin {  }
+	}
 }
 
 dependencies {
