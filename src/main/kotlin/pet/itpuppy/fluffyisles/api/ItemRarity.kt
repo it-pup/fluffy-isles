@@ -1,8 +1,7 @@
 package pet.itpuppy.fluffyisles.api
 
-import net.minecraft.client.gui.screens.Screen
+import net.minecraft.core.component.DataComponents
 import net.minecraft.world.item.ItemStack
-import pet.itpuppy.fluffyisles.FluffyIsles
 import pet.itpuppy.fluffyisles.utils.ColorUtils
 
 object ItemRarity {
@@ -32,39 +31,14 @@ object ItemRarity {
         )
     }
 
-    val regex = """
-        (Common|Uncommon|Rare|Epic|Legendary)\s+
-        (?:
-        (?:Raw\s+)?Material|Potion|Elixir|Ammo|
-        
-        Staff|Wand|Focus|Gauntlet|Tome|
-        Sword|Axe|Spear|Dagger|Mace|
-        Bow|Greatbow|Pot|Kunai|Crossbow|Handcannon|
-        
-        Helmet|Chestplate|Leggings|Boots|
-        Quiver|Backpack|Pouch|Ring|Greave|Amulet|Glove|Gloves|
-        
-        Dish|Snack|Pet\sEgg|Pet|Consumable|Deployable|
-        Utility|Weapon\sAugment|Quest\sItem|Item\sUtility|Upgrade\sStone|Crafting\sCatalyst|
-        Hatchet|Pickaxe|Hoe|Fishing\sRod
-        )
-        (?:\s+Skin)?
-        $
-    """.trimIndent().toRegex(RegexOption.COMMENTS)
-
     fun fromItemStack(stack: ItemStack): Rarities? {
         if (stack.isEmpty) return null
 
-        val lines = Screen.getTooltipFromItem(FluffyIsles.client, stack)
-        for (line in lines) {
-            if (line.string.trimStart() == "Class Core") return Rarities.LEGENDARY // couldn't be bothered any less to add complicated checks for this
+        val lore = stack.get(DataComponents.LORE) ?: return null
+        if (lore.lines.size < 2) return null
 
-            val match = regex.find(line.string)
-            match?.let {
-                return Rarities.entries.find { it.displayName == match.groupValues[1] }
-            }
+        return Rarities.entries.find {
+            lore.lines[1].string.contains(it.displayName)
         }
-
-        return null
     }
 }
