@@ -10,6 +10,7 @@ object RarityHighlights {
     val sprite = FluffyIsles.id("hud_item_rarity_highlight")
 
     fun renderHighlight(stack: ItemStack, x: Int, y: Int, graphics: GuiGraphics) {
+        if (!FluffyIsles.config.rarityHighlightSection.isEnabled) return
         val rarity = ItemRarity.fromItemStack(stack) ?: return
 
         graphics.blitSprite(

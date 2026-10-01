@@ -12,6 +12,8 @@ repositories {
 	// Add repositories to retrieve artifacts from in here.
 	maven("https://maven.parchmentmc.org") { name = "ParchmentMC" }
 	maven("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1")
+	maven("https://maven.terraformersmc.com/") { name = "Terraformers" }
+	maven("https://maven.shedaniel.me/")
 }
 
 dependencies {
@@ -23,6 +25,9 @@ dependencies {
 	})
 
 	modImplementation(libs.bundles.fabric)
+	modImplementation(libs.modmenu)
+	modApi(libs.cloth.config)
+
 	modRuntimeOnly(libs.devauth)
 }
 
