@@ -5,7 +5,6 @@
 ![GitHub Stars](https://www.shieldcn.dev/github/stars/it-pup/fluffy-isles.svg?variant=secondary&size=sm)
 ![GitHub Forks](https://www.shieldcn.dev/github/forks/it-pup/fluffy-isles.svg?variant=secondary&size=sm)
 ![Last commit](https://www.shieldcn.dev/github/last-commit/it-pup/fluffy-isles.svg?variant=secondary&size=sm)
-![GitHub Stars](https://www.shieldcn.dev/github/stars/it-pup/fluffy-isles.svg?variant=secondary&size=sm)
 ![CI](https://www.shieldcn.dev/github/ci/it-pup/fluffy-isles.svg?variant=secondary&size=sm)
 
 </div>
