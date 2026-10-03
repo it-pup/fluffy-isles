@@ -12,7 +12,8 @@
 
                     "miscSection": {
                         "@": "Misc Settings",
-                        "showOwnNametag": "Render Own Nametag"
+                        "showOwnNametag": "Render Own Nametag",
+                        "hideEmptyTooltips": "Hide Empty Tooltips"
                     }
                 }
             }
