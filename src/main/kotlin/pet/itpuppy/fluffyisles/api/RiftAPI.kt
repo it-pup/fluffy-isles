@@ -5,6 +5,7 @@ import pet.itpuppy.fluffyisles.collectors.ScoreboardCollector
 
 object RiftAPI {
     var inRift: Boolean? = null; private set
+    var isLoreRift: Boolean? = null; private set
 
     var riftName: String? = null; private set
     var riftTime: Int? = null; private set
@@ -21,7 +22,7 @@ object RiftAPI {
     var riftBosses: Int? = null; private set
     var riftBossesMax: Int? = null; private set
 
-    private val timeLineRegex = Regex("""⌛ Rift Time: (\d+m \d+s) \((\d+)\/(\d+)\)§""")
+    private val timeLineRegex = Regex("""⌛(?: Rift Time:)? (\d+m \d+s)(?: \((\d+)\/(\d+)\))?§""")
     private val statsLineRegex = Regex("""☠ (\d+)\/(\d+) 🎁 (\d+)\/(\d+) 👑 (\d+)\/(\d+)§""")
     private val timeRegex = Regex("""(?:(\d+)h)?\s*(?:(\d+)m)?\s*(?:(\d+)s)?""")
 
@@ -32,6 +33,7 @@ object RiftAPI {
 
     private fun updateRiftData() {
         if (!onIsles || inRift != true) {
+            isLoreRift = null
             riftName = null; riftTime = null
             riftScore = null; riftScoreMax = null
             riftKills = null; riftKillsMax = null
@@ -44,6 +46,7 @@ object RiftAPI {
         val timeLine = ScoreboardCollector.getOrNull(5) ?: "?"
         val statsLine = ScoreboardCollector.getOrNull(6) ?: "?"
 
+        isLoreRift = !timeLine.contains("Rift Time:")
         riftName = titleLine.trim().removeSuffix(" §\u0083")
 
         val timeLineMatch = timeLineRegex.find(timeLine.trim())
