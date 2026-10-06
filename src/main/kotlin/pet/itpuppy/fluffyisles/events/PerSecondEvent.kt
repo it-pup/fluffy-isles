@@ -37,7 +37,5 @@ object PerSecondEvent : ClientEvent {
         ConnectionAPI.tick()
         PartyAPI.tick()
         RiftAPI.tick()
-
-        println("inRift: ${RiftAPI.inRift}, riftTime: ${RiftAPI.riftTime}, riftKills: ${RiftAPI.riftKills}, riftSecrets: ${RiftAPI.riftSecrets}, riftBosses: ${RiftAPI.riftBosses}, riftScore: ${RiftAPI.riftScore}")
     }
 }

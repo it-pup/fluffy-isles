@@ -128,12 +128,6 @@ object ConfigCommand : ClientCommand {
                         }
                     }
                 }
-
-                "dev api" {
-                    "collector scoreboard" executes {
-                        FluffyIsles.message(Component.literal(ScoreboardCollector.getFull().toString()))
-                    }
-                }
             }
         }
     }
