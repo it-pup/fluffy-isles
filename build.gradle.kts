@@ -49,6 +49,10 @@ dependencies {
 	modRuntimeOnly(libs.devauth)
 }
 
+loom {
+	accessWidenerPath = rootProject.file("src/main/resources/fluffy-isles.classtweaker")
+}
+
 tasks.processResources {
 	fun MutableMap<String, Any>.register(key: String, property: String) {
 		val value = project.property(property).toString()

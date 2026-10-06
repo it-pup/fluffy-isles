@@ -4,7 +4,7 @@ import net.minecraft.core.component.DataComponents
 import net.minecraft.world.item.ItemStack
 import pet.itpuppy.fluffyisles.utils.ColorUtils
 
-object ItemRarity {
+object ItemRarityAPI {
     enum class Rarities(
         val displayName: String,
         val color: Int,

@@ -16,6 +16,7 @@ import net.minecraft.network.chat.HoverEvent
 import net.minecraft.resources.RegistryOps
 import net.minecraft.world.item.ItemStack
 import pet.itpuppy.fluffyisles.FluffyIsles
+import pet.itpuppy.fluffyisles.collectors.ScoreboardCollector
 import pet.itpuppy.fluffyisles.config.ModConfig
 import pet.itpuppy.utils.command.dsl.command
 import java.io.BufferedOutputStream
@@ -28,10 +29,10 @@ import kotlin.io.path.createParentDirectories
 import kotlin.io.path.outputStream
 import kotlin.jvm.optionals.getOrNull
 
-object ConfigCommand {
+object ConfigCommand : ClientCommand {
     private val gson: Gson = GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create()
 
-    fun register() {
+    override fun register() {
         ClientCommandRegistrationCallback.EVENT.register { dispatcher, context ->
             dispatcher.command(FluffyIsles.MOD_ID, context) {
                 opens {
@@ -125,6 +126,12 @@ object ConfigCommand {
                                 it.write(gson.toJson(item).toByteArray())
                             }
                         }
+                    }
+                }
+
+                "dev api" {
+                    "collector scoreboard" executes {
+                        FluffyIsles.message(Component.literal(ScoreboardCollector.getFull().toString()))
                     }
                 }
             }

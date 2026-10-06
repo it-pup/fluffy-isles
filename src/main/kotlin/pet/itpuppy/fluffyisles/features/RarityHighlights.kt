@@ -4,14 +4,14 @@ import net.minecraft.client.gui.GuiGraphics
 import net.minecraft.client.renderer.RenderPipelines
 import net.minecraft.world.item.ItemStack
 import pet.itpuppy.fluffyisles.FluffyIsles
-import pet.itpuppy.fluffyisles.api.ItemRarity
+import pet.itpuppy.fluffyisles.api.ItemRarityAPI
 
 object RarityHighlights {
     val sprite = FluffyIsles.id("hud_item_rarity_highlight")
 
     fun renderHighlight(stack: ItemStack, x: Int, y: Int, graphics: GuiGraphics) {
         if (!FluffyIsles.config.rarityHighlightSection.isEnabled) return
-        val rarity = ItemRarity.fromItemStack(stack) ?: return
+        val rarity = ItemRarityAPI.fromItemStack(stack) ?: return
 
         graphics.blitSprite(
             RenderPipelines.GUI_TEXTURED,

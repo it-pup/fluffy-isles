@@ -11,17 +11,19 @@ import net.minecraft.network.chat.MutableComponent
 import net.minecraft.resources.Identifier
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import pet.itpuppy.fluffyisles.commands.ConfigCommand
+import pet.itpuppy.fluffyisles.commands.ClientCommand
 import pet.itpuppy.fluffyisles.config.ModConfig
+import pet.itpuppy.fluffyisles.events.ClientEvent
 import pet.itpuppy.fluffyisles.utils.Comp
 import pet.itpuppy.fluffyisles.utils.Comp.of
 import pet.itpuppy.fluffyisles.utils.Comp.prefix
 
 object FluffyIsles : ModInitializer {
 	const val MOD_ID: String = "fluffy-isles"
-	private val lookup by lazy { VanillaRegistries.createLookup() }
 	val LOGGER: Logger = LoggerFactory.getLogger(MOD_ID)
 	lateinit var config: ModConfig
+
+	private val lookup by lazy { VanillaRegistries.createLookup() }
 
 	val registry: HolderLookup.Provider get() = client.connection?.registryAccess() ?: lookup
 	val client: Minecraft get() = Minecraft.getInstance()
@@ -38,7 +40,13 @@ object FluffyIsles : ModInitializer {
 		AutoConfig.register(ModConfig::class.java, ::GsonConfigSerializer)
 		config = AutoConfig.getConfigHolder(ModConfig::class.java).config
 
-		ConfigCommand.register()
+		ClientCommand::class.sealedSubclasses
+			.mapNotNull { it.objectInstance }
+			.forEach { it.register() }
+
+		ClientEvent::class.sealedSubclasses
+			.mapNotNull { it.objectInstance }
+			.forEach { it.register() }
 	}
 
 	fun id(path: String): Identifier = Identifier.fromNamespaceAndPath(MOD_ID, path)

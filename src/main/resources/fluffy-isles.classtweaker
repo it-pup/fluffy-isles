@@ -1,0 +1,2 @@
+classTweaker v2 named
+accessible method net/minecraft/client/gui/components/PlayerTabOverlay getPlayerInfos ()Ljava/util/List;

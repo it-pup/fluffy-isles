@@ -50,5 +50,7 @@
 
 	"suggests": {
 		"modmenu": "*"
-	}
+	},
+
+	"accessWidener": "fluffy-isles.classtweaker"
 }
