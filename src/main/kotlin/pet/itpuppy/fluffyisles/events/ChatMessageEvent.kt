@@ -5,6 +5,7 @@ import net.minecraft.network.chat.Component
 import pet.itpuppy.fluffyisles.features.ChatLevelTag
 import pet.itpuppy.fluffyisles.features.GlobalChatMute
 import pet.itpuppy.fluffyisles.features.PlayerMute
+import pet.itpuppy.fluffyisles.features.WhiteChat
 
 object ChatMessageEvent : ClientEvent {
     override fun register() {
@@ -17,7 +18,7 @@ object ChatMessageEvent : ClientEvent {
         }
 
         ClientReceiveMessageEvents.MODIFY_GAME.register { message, overlay ->
-            if (overlay) message else ChatLevelTag.modify(message)
+            if (overlay) message else WhiteChat.modify(ChatLevelTag.modify(message))
         }
     }
     

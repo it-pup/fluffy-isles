@@ -10,10 +10,10 @@ import pet.itpuppy.fluffyisles.utils.Comp
 import pet.itpuppy.fluffyisles.utils.FormatCodes
 
 object ChatLevelTag {
-    private val section get() = FluffyIsles.config.chatSection.levelTag
+    private val enabled get() = FluffyIsles.config.chatSection.levelTagEnabled
 
     fun modify(message: Component): Component {
-        if (!section.isEnabled) return message
+        if (!enabled) return message
 
         val sender = ChatMessageAPI.parse(message)?.sender ?: return message
         val level = ChatMessageAPI.totalLevelOf(message) ?: return message

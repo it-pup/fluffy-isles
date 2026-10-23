@@ -30,16 +30,25 @@
                                 "@Tooltip": "Replaces muted messages with a placeholder instead of hiding them (like Discord). Hover over it to read the message."
                             }
                         },
-                        "levelTag": {
-                            "@": "Show Level Tag",
-                            "@Tooltip": "Displays the Total Level of each player next to their name in chat.",
-                            "isEnabled": "Enabled"
+                        "levelTagEnabled": {
+                            "@": "Show Player Level Tag",
+                            "@Tooltip": "Displays the Total Level of each player next to their name in chat."
+                        },
+                        "whiteChatEnabled": {
+                            "@": "White Player Chat Color",
+                            "@Tooltip": "Makes the color of all player messages white."
                         }
                     },
 
                     "expTrackerSection": {
                         "@": "Exp Tracker",
-                        "isEnabled": "Show Exp Tracker",
+                        "isEnabled": {
+                            "@": "Show Exp Tracker",
+                            "@Tooltip": [
+                                "§eNote: Due to limitations, skill progress can get desynced in some cases.",
+                                "§eRun /skills periodically to sync up the tracker."
+                            ]
+                        },
                         "idleTimeoutSeconds": {
                             "@": "Idle Timeout (Seconds)",
                             "@Tooltip": "Time of inactivity before the tracker pauses."

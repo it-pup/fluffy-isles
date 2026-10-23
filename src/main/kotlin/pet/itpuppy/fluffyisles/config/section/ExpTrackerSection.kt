@@ -4,6 +4,7 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry
 import pet.itpuppy.fluffyisles.config.entries.SkillSelect
 
 class ExpTrackerSection {
+    @ConfigEntry.Gui.Tooltip
     var isEnabled: Boolean = false
 
     @ConfigEntry.Gui.Tooltip
